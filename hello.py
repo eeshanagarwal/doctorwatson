@@ -9,8 +9,6 @@ app = Flask(__name__)
 callers = {
     "+16508669177": "Eeshan",
 }
- 
-@app.route("/", methods=['GET', 'POST'])
 
 def search_disease(symptoms):
 	return "ha!"
@@ -30,6 +28,9 @@ def search_disease(symptoms):
     
     # counterC = Counter(matchingDs)
     # return str(counterC.most_common(3)) 
+ 
+@app.route("/", methods=['GET', 'POST'])
+
 
 def hello_monkey():
     """Respond and greet the caller by name."""
