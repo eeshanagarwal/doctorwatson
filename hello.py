@@ -13,22 +13,23 @@ callers = {
 @app.route("/", methods=['GET', 'POST'])
 
 def search_disease(symptoms):
-    with open('finalDB.json') as data_file:    
-        data = json.load(data_file)
-    matchingDs = []
+	return "ha!"
+    # with open('finalDB.json') as data_file:    
+    #     data = json.load(data_file)
+    # matchingDs = []
 
-    for aSymptom in symptoms:
+    # for aSymptom in symptoms:
         
-        for x in data:
-            symsm = x['Symptom'].split(",")
+    #     for x in data:
+    #         symsm = x['Symptom'].split(",")
 
-            for s in symsm:
-                if aSymptom in s:
-                    matchingDs.append(x['Disease'])
+    #         for s in symsm:
+    #             if aSymptom in s:
+    #                 matchingDs.append(x['Disease'])
                
     
-    counterC = Counter(matchingDs)
-    return str(counterC.most_common(3)) 
+    # counterC = Counter(matchingDs)
+    # return str(counterC.most_common(3)) 
 
 def hello_monkey():
     """Respond and greet the caller by name."""
