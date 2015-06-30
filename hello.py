@@ -30,7 +30,7 @@ def search_disease(symptoms):
 def hello_monkey():
 	body = request.values.get('Body', None)
 	
-	message = search_disease(body)
+	message = body
 	resp = twilio.twiml.Response()
 	resp.message(message)
 	return str(resp)
