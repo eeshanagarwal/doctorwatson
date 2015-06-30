@@ -35,11 +35,11 @@ def search_disease(symptoms):
 def hello_monkey():
     """Respond and greet the caller by name."""
  
-    from_number = request.values.get('From', None)
-    if from_number in callers:
-        message = callers[from_number] + ", thanks for the message!"
-    else:
-        message = "Monkey, thanks for the message!"
+    # from_number = request.values.get('From', None)
+    # if from_number in callers:
+    #     message = callers[from_number] + ", thanks for the message!"
+    # else:
+    #     message = "Monkey, thanks for the message!"
  	
  	body = request.values.get('Body', None)
 	message = search_disease(body)
