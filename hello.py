@@ -44,7 +44,7 @@ def search_disease(symptoms):
 
 def hello_monkey():
 	body = request.values.get('Body', None)
-	message = search_disease(body)
+	message = "search_disease(body)"
 
 	r = twiml.Response()
 	r.message = message
