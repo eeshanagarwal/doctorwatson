@@ -42,8 +42,8 @@ def hello_monkey():
     #     message = "Monkey, thanks for the message!"
  	
  	body = request.values.get('Body', None)
-	message = search_disease(body)
-
+	#message = search_disease(body)
+	message = "Monkey, thanks for the message!"
     resp = twilio.twiml.Response()
     resp.message(message)
  
