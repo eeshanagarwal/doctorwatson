@@ -29,7 +29,7 @@ def search_disease(symptoms):
 
 @app.route("/", methods=['GET', 'POST'])
 def hello_monkey():
-	body = "fever, cough"
+	body = request.values.get('Body', None)
 	symptoms = body.split(",")
 
 	req = urllib2.Request("https://raw.githubusercontent.com/eeshanagarwal/doctorwatson/master/finalDB.JSON")
