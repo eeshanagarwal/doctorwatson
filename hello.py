@@ -30,7 +30,7 @@ def search_disease(symptoms):
 def hello_monkey():
 	body = request.values.get('Body', None)
 	symptoms = body.split(",")
-	
+
 	with open('finalDB.json') as data_file:    
 		data = json.load(data_file)
 	matchingDs = []
