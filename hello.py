@@ -28,7 +28,7 @@ def search_disease(symptoms):
 
 @app.route("/", methods=['GET', 'POST'])
 def hello_monkey():
-	body = request.values.get('Body', None)
+	body = "fever, cough"
 	symptoms = body.split(",")
 
 	with open('finalDB.json') as data_file:    
