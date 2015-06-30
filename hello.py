@@ -29,8 +29,23 @@ def search_disease(symptoms):
 @app.route("/", methods=['GET', 'POST'])
 def hello_monkey():
 	body = request.values.get('Body', None)
+	symptoms = body.split(",")
 	
-	message = body
+	with open('finalDB.json') as data_file:    
+		data = json.load(data_file)
+	matchingDs = []
+
+	for aSymptom in symptoms:
+		
+		for x in data:
+			symsm = x['Symptom'].split(",")
+
+			for s in symsm:
+				if aSymptom in s:
+					matchingDs.append(x['Disease'])
+	counterC = Counter(matchingDs)
+
+	message = str(counterC.most_common(3)) 
 	resp = twilio.twiml.Response()
 	resp.message(message)
 	return str(resp)
