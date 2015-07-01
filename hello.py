@@ -51,11 +51,15 @@ def hello_monkey():
 	counterC = Counter(matchingDs)
 
 
-	message = str(counterC.most_common(3))
+	message = counterC.most_common(3)
+
+	qq = ""
+	for each in message:
+		qq = qq + "-" + each[0]
 
 
-	yo = "Possible diagnosis "
-	message = message+ yo
+	message = "Possible diagnosis "
+	message = message+ str(qq)
 	resp = twilio.twiml.Response()
 	resp.message(message)
 	return str(resp)
