@@ -30,6 +30,7 @@ def search_disease(symptoms):
 @app.route("/", methods=['GET', 'POST'])
 def hello_monkey():
 	body = request.values.get('Body', None)
+	
 	symptoms = body.split(",")
 
 	req = urllib2.Request("https://raw.githubusercontent.com/eeshanagarwal/doctorwatson/master/finalDB.JSON")
@@ -37,8 +38,7 @@ def hello_monkey():
 	f = opener.open(req)
 	data = json.loads(f.read())
 
-	# with open('finalDB.json') as data_file:    
-	# 	data = json.load(data_file)
+
 	matchingDs = []
 
 	for aSymptom in symptoms:
@@ -50,7 +50,15 @@ def hello_monkey():
 					matchingDs.append(x['Disease'])
 	counterC = Counter(matchingDs)
 
-	message = str(counterC.most_common(3)) 
+
+	cc = counterC.most_common(3)
+
+	qq = ""
+	for each in cc:
+		qq = qq + "-" + each[0]
+
+	message = "Possible diagnosis "
+	message = message+ qq
 	resp = twilio.twiml.Response()
 	resp.message(message)
 	return str(resp)
