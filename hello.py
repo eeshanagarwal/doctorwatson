@@ -57,8 +57,9 @@ def hello_monkey():
 	for each in cc:
 		qq = qq + "-" + each[0]
 
+
 	message = "Possible diagnosis "
-	message = message+ qq
+	message = message+ str(qq)
 	resp = twilio.twiml.Response()
 	resp.message(message)
 	return str(resp)
